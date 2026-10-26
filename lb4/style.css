@@ -1,0 +1,78 @@
+/* Налаштування базових стилів та фону */
+body {
+    background-color: #eef0fa; /* Світло-бузковий фон, як на картинці */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Напівпрозорий фон для шапки і підвалу */
+}
+
+header h1, footer p {
+    margin: 0;
+    color: #333;
+}
+
+/* Основний контейнер Flexbox */
+main {
+    flex: 1; /* Дозволяє контенту розтягуватися, відштовхуючи футер вниз */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap; /* Дозволяє перенесення елементів на новий рядок */
+    justify-content: center; /* Центрування карток */
+    gap: 60px 80px; /* Відступи між рядками (60px) та колонками (80px) */
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* Стиль кожної окремої картки */
+.gallery-item {
+    background-color: #ffffff;
+    border: 1px solid #555555; /* Тонка сіра рамка */
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Flexbox-налаштування для 3 колонок */
+    /* Беремо 33.33% ширини та віднімаємо частину gap для рівномірного розташування */
+    flex: 0 1 calc(33.333% - 60px); 
+    
+    /* Мінімальна ширина, щоб на телефонах картки не ставали занадто вузькими */
+    min-width: 220px; 
+    max-width: 250px; /* Обмеження максимальної ширини картки */
+}
+
+/* Стилі для зображень всередині карток */
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 15px; /* Відступ до тексту */
+}
+
+/* Стилі для тексту (попри назву класу text-overlay, текст буде під фото) */
+.text-overlay {
+    text-align: center;
+}
+
+.text-overlay p {
+    font-size: 12px;
+    color: #000000;
+    margin: 0;
+    line-height: 1.4;
+}
